@@ -1,0 +1,85 @@
+% Class settings
+\PassOptionsToClass{11pt}{memoir}
+\PassOptionsToClass{openright}{memoir}
+\PassOptionsToClass{twoside}{memoir}
+\usepackage[subpreambles=true]{standalone}
+
+% Page size
+\setstocksize{240mm}{170mm}
+\usepackage[
+	paperheight=240mm,
+	paperwidth=170mm,
+	inner=27.5mm, %25mm
+	outer=17.5mm, %20mm
+	top=25mm,
+	bottom=20mm,
+	headsep=5mm
+]{geometry}
+
+% Packages
+\usepackage[leqno]{amsmath}
+\usepackage{amssymb,amsfonts,bm}
+\usepackage[dutch,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[unicode]{hyperref}
+\hypersetup{hidelinks}
+
+
+% Bibliography
+\usepackage{natbib}
+\setlength{\bibsep}{0.0pt}
+\usepackage{bibentry}
+\bibliographystyle{abbrv} 
+%\ifstandalone\else\nobibliography*\fi
+
+% Index
+%\usepackage{imakeidx}
+%\indexsetup{level=\chapter}
+%\makeindex
+
+% Page settings
+\makeatletter
+\copypagestyle{myheadings}{headings}
+\nouppercaseheads
+\makeheadrule{myheadings}{\textwidth}{\normalrulethickness}
+\makeoddhead{myheadings}{\scshape\rightmark}{}{\thepage}
+\makeevenhead{myheadings}{\thepage}{}{\scshape\leftmark}
+\makepsmarks{myheadings}{%
+  \createmark{section}{right}{shownumber}{}{.\ }%
+  \createmark{chapter}{left}{shownumber}{}{.\ }%
+}
+\pagestyle{myheadings}
+
+\makepagestyle{myblank}
+\makeoddhead{myblank}{}{}{\thepage}
+\makeevenhead{myblank}{\thepage}{}{}
+
+\makechapterstyle{myveelo}{ % chapter starts at an odd page
+  \chapterstyle{default}
+  \setlength{\afterchapskip}{80pt}
+  \renewcommand*{\chapterheadstart}{\vspace*{40pt}}
+  \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
+  \renewcommand*{\chapnamefont}{\normalfont\LARGE\flushright}
+  \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries\flushright}
+  \renewcommand*{\printchaptername}{\chapnamefont\MakeUppercase{\@chapapp}}
+  \renewcommand*{\chapternamenum}{}
+  \setlength{\beforechapskip}{18mm}
+  \setlength{\midchapskip}{\paperwidth}
+  \addtolength{\midchapskip}{-\textwidth}
+  \addtolength{\midchapskip}{-\spinemargin}
+  \renewcommand*{\printchapternum}{\enspace\resizebox{!}{\beforechapskip}{\chapnumfont\thechapter}}
+  \makeoddhead{plain}{}{}{\thepage}
+  \makeoddfoot{plain}{}{}{}
+}
+\makechapterstyle{myveeloleft}{ % For if you want to start a chapter at an even page
+  \chapterstyle{myveelo}
+  \renewcommand*{\chapnamefont}{\normalfont\LARGE}
+  \renewcommand*{\chaptitlefont}{\normalfont\HUGE\bfseries}
+}
+\renewcommand\bibentry[1]{\nocite{#1}{\frenchspacing\@nameuse{BR@r@#1\@extra@b@citeb}}}
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}{3.25ex \@plus1ex \@minus.2ex}{-1em}{\normalfont\normalsize\textbf}}
+\renewcommand\tableofcontents{\@starttoc{toc}}
+\makeatother
+\chapterstyle{myveelo}

@@ -1,0 +1,24 @@
+\documentclass{memoir}
+\input{preamble}
+
+\begin{document}
+
+\frontmatter
+\input{leiden}
+
+\chapterstyle{myveelo}
+\chapter{Contents}
+\tableofcontents
+%\cleartooddpage[\thispagestyle{myblank}] % add where you want to number blank pages
+
+\mainmatter
+\include{chapter1}
+\include{chapter2}
+
+\backmatter
+\bibliography{references} 
+%\printindex
+
+\include{cv}
+
+\end{document}

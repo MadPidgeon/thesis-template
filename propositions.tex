@@ -1,0 +1,60 @@
+\documentclass[10pt]{article}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{etoolbox}
+\usepackage{verbatim}
+\usepackage{float} 
+\geometry{
+paperwidth=16cm,
+paperheight=23cm,
+left=30mm,
+top=30mm,
+right=30mm,
+bottom=30mm 
+}
+\newtoggle{showanswers}
+\toggletrue{showanswers} % comment this line
+\newenvironment{answer}{}{}
+\iftoggle{showanswers}{}{\AtBeginEnvironment{answer}{\comment}\AtEndEnvironment{answer}{\endcomment}}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{spacing}{1.1}
+\centering 
+\section*{\LARGE{Stellingen}}
+behorende bij het proefschrift \\
+\emph{``TITLE''} \\
+\end{spacing}
+
+\begin{enumerate}[label=(\roman*),leftmargin=0pt]
+\item The next proposition is true.
+\begin{answer}
+
+Believe me bro.
+\end{answer}
+\item The previous proposition is false.
+\begin{answer}
+
+Paradox!
+\end{answer}
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed nisl dictum, pellentesque diam eu, molestie felis. Cras id nibh dapibus, aliquet sem non, elementum enim. Fusce et efficitur ex, porta malesuada metus. Praesent efficitur finibus purus, et luctus neque vulputate non. Donec id rhoncus dui. Nam sem diam, vulputate eu lobortis a, malesuada condimentum metus. Sed semper libero non metus feugiat ultrices. Nulla finibus ullamcorper ante sed ultrices. Nulla ornare metus quis nisl consectetur, vitae eleifend turpis tempor. Fusce sed ex dapibus, sollicitudin justo at, volutpat turpis. Cras id felis a ligula porttitor lobortis. Curabitur lacinia tempus metus sit amet pretium. Proin a erat arcu.
+\begin{answer}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed nisl dictum, pellentesque diam eu, molestie felis. Cras id nibh dapibus, aliquet sem non, elementum enim. Fusce et efficitur ex, porta malesuada metus.
+\end{answer}
+\end{enumerate}
+
+\vfill
+\setlength{\leftskip}{6.5cm}
+\noindent \textbf{NAME}\\
+Leiden, \textbf{DATE}
+
+\end{document}
